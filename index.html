@@ -3,12 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kenny Malau</title>
+    <title>Kenny Malau - Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-<div class :"Welcome Everyone"</div>
-    <h1>Selamat Datang Di Portofolio Saya</h1>
-    <p>Nama Saya Ananda Kenny</p>
-    <p>Saya Orang Batak</p>
+<body class="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 flex items-center justify-center p-6">
+
+    <div class="max-w-2xl w-full">
+
+        <!-- Hero Card -->
+        <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-10 shadow-2xl text-white text-center">
+
+            <!-- Avatar placeholder -->
+            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-pink-400 to-indigo-400 flex items-center justify-center text-3xl font-bold mx-auto mb-6 shadow-lg">
+                AK
+            </div>
+
+            <h1 class="text-4xl font-extrabold tracking-tight mb-2">
+                Selamat Datang Di Portofolio Saya
+            </h1>
+
+            <p class="text-pink-300 text-lg font-medium mb-1">Nama Saya <span class="text-white font-semibold">Ananda Kenny</span></p>
+            <p class="text-purple-300 text-sm mb-6">Saya Orang Batak</p>
+
+            <div class="w-16 h-px bg-white/30 mx-auto mb-6"></div>
+
+            <!-- Info grid -->
+            <div class="grid grid-cols-1 gap-3 text-left mb-8">
+                <div class="bg-white/10 rounded-xl px-5 py-3 flex items-center gap-3">
+                    <span class="text-pink-400 text-xl">🎓</span>
+                    <span class="text-sm text-white/90">Berkuliah di <span class="font-semibold">Gunadarma</span></span>
+                </div>
+                <div class="bg-white/10 rounded-xl px-5 py-3 flex items-center gap-3">
+                    <span class="text-indigo-300 text-xl">💻</span>
+                    <span class="text-sm text-white/90">Jurusan <span class="font-semibold">Sistem Informasi</span></span>
+                </div>
+            </div>
+
+            <!-- Minat Bidang -->
+            <div class="bg-gradient-to-r from-indigo-500/30 to-pink-500/30 rounded-2xl p-5 mb-8 text-left border border-white/10">
+                <h2 class="text-xl font-bold text-white mb-2">✨ Minat Bidang</h2>
+                <p class="text-purple-200 font-medium">Software Engineering</p>
+            </div>
+
+            <div class="w-16 h-px bg-white/30 mx-auto mb-6"></div>
+
+            <p class="text-white/60 text-sm">
+                Ini adalah contoh simple <strong class="text-white">website</strong>.
+            </p>
+
+            <!-- Nav links -->
+            <div class="flex flex-wrap justify-center gap-3 mt-8">
+                <a href="list.html" class="px-5 py-2 bg-indigo-500 hover:bg-indigo-400 transition rounded-full text-sm font-semibold shadow">📋 List</a>
+                <a href="table.html" class="px-5 py-2 bg-purple-500 hover:bg-purple-400 transition rounded-full text-sm font-semibold shadow">📊 Table</a>
+                <a href="image.html" class="px-5 py-2 bg-pink-500 hover:bg-pink-400 transition rounded-full text-sm font-semibold shadow">🖼️ Image</a>
+                <a href="form.html" class="px-5 py-2 bg-rose-500 hover:bg-rose-400 transition rounded-full text-sm font-semibold shadow">📝 Form</a>
+            </div>
+        </div>
+
+    </div>
+
 </body>
 </html>
