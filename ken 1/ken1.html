@@ -4,49 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traffic Light | Atikur Satter Mondal</title>
+    <title>Traffic Light | Interactive Simulation</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Tailwind CSS v4 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="container">
-        <h1>Traffic Light</h1>
-        <div class="traffic-light-container">
-            <div class="traffic-light red-light">
-                <div class="light red"></div>
-                <div class="light yellow"></div>
-                <div class="light green"></div>
+<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 min-h-screen py-8 px-4">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-5xl font-bold text-center text-white mb-12 drop-shadow-lg">Traffic Light Simulator</h1>
+        
+        <!-- Traffic Light Container -->
+        <div class="flex flex-wrap justify-center gap-12 mb-12">
+            <!-- Vertical Traffic Light -->
+            <div class="bg-slate-800 rounded-3xl shadow-2xl p-8 border-4 border-slate-700">
+                <h3 class="text-white text-xl font-semibold mb-6 text-center">Vertical Light</h3>
+                <div class="flex flex-col gap-6 items-center">
+                    <div id="red" class="w-32 h-32 rounded-full bg-gray-700 shadow-inner transition-all duration-300 ease-in-out border-4 border-slate-600"></div>
+                    <div id="yellowe" class="w-32 h-32 rounded-full bg-gray-700 shadow-inner transition-all duration-300 ease-in-out border-4 border-slate-600"></div>
+                    <div id="green" class="w-32 h-32 rounded-full bg-gray-700 shadow-inner transition-all duration-300 ease-in-out border-4 border-slate-600"></div>
+                </div>
             </div>
-            <div class="traffic-light flex-row">
-                <div class="light red"></div>
-                <div class="light yellow"></div>
-                <div class="light green"></div>
+
+            <!-- Horizontal Traffic Light -->
+            <div class="bg-slate-800 rounded-3xl shadow-2xl p-8 border-4 border-slate-700">
+                <h3 class="text-white text-xl font-semibold mb-6 text-center">Horizontal Light</h3>
+                <div class="flex gap-6 items-center">
+                    <div class="w-32 h-32 rounded-full bg-gray-700 shadow-inner transition-all duration-300 ease-in-out border-4 border-slate-600" data-sync="red"></div>
+                    <div class="w-32 h-32 rounded-full bg-gray-700 shadow-inner transition-all duration-300 ease-in-out border-4 border-slate-600" data-sync="yellow"></div>
+                    <div class="w-32 h-32 rounded-full bg-gray-700 shadow-inner transition-all duration-300 ease-in-out border-4 border-slate-600" data-sync="green"></div>
+                </div>
             </div>
         </div>
 
+        <!-- Control Button -->
+        <div class="text-center mb-12">
+            <button id="switchBtn" 
+                class="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold text-xl py-4 px-12 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+                Switch Light
+            </button>
+            <p class="text-gray-400 mt-4 text-sm">Click to toggle between Red and Green</p>
+        </div>
+
         <!-- Description Section -->
-        <div class="description-container">
-            <h2>How It Works</h2>
-            <div class="description-content">
-                <p>This traffic light simulation follows a standard traffic signal pattern:</p>
-                <ul>
-                    <li><span class="desc-light red-text">Red Light</span>: Stops for <span class="duration">4
-                            seconds</span>, then changes to green</li>
-                    <li><span class="desc-light green-text">Green Light</span>: Proceeds for <span class="duration">3
-                            seconds</span>, then changes to yellow</li>
-                    <li><span class="desc-light yellow-text">Yellow Light</span>: Caution for <span class="duration">0.5
-                            seconds</span>, then changes to red</li>
+        <div class="bg-slate-800 rounded-2xl shadow-2xl p-8 border-2 border-slate-700">
+            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-blue-500 pb-3">How It Works</h2>
+            <div class="text-gray-300 space-y-4">
+                <p class="text-lg leading-relaxed">This interactive traffic light simulation demonstrates a manual traffic signal control:</p>
+                <ul class="space-y-3 ml-6">
+                    <li class="flex items-start gap-3">
+                        <span class="inline-block w-6 h-6 rounded-full bg-red-500 mt-1 flex-shrink-0 shadow-lg"></span>
+                        <span><span class="font-bold text-red-400">Red Light</span>: Click the switch button to start the transition. Yellow appears for 1 second before switching.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="inline-block w-6 h-6 rounded-full bg-yellow-400 mt-1 flex-shrink-0 shadow-lg"></span>
+                        <span><span class="font-bold text-yellow-400">Yellow Light</span>: Transition light that appears for 1 second between red and green.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="inline-block w-6 h-6 rounded-full bg-green-500 mt-1 flex-shrink-0 shadow-lg"></span>
+                        <span><span class="font-bold text-green-400">Green Light</span>: Click again to switch back to red (via yellow transition).</span>
+                    </li>
                 </ul>
-                <p>The sequence repeats continuously, mimicking real traffic signals. Both vertical and horizontal
-                    traffic lights operate in sync.</p>
-                <p class="code-note">The timing configuration is controlled by JavaScript using a configuration object
-                    that defines the duration and next state for each light.</p>
+                <p class="text-lg leading-relaxed pt-4">The sequence alternates between red and green with a yellow transition. Both vertical and horizontal traffic lights operate in perfect sync.</p>
+                <div class="bg-slate-900 rounded-lg p-4 mt-6 border-l-4 border-blue-500">
+                    <p class="text-sm text-gray-400"><span class="font-semibold text-blue-400">💡 Technical Note:</span> The timing and transitions are controlled by JavaScript, with a configuration system that manages state changes and visual feedback.</p>
+                </div>
             </div>
         </div>
     </div>
